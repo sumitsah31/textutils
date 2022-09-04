@@ -33,7 +33,9 @@ export default function Textarea(props) {
     props.showalert("Extra space removed", "success");
   };
 
-  const wordcount = textarea.split(/\s+/).filter((element)=>{return element.length!==0}).length;
+  const wordcount = textarea.split(/\s+/).filter((element) => {
+    return element.length !== 0;
+  }).length;
   const charactercount = textarea.length;
   return (
     <>
@@ -61,7 +63,7 @@ export default function Textarea(props) {
           type="button"
           className="btn btn-primary mx-1"
           onClick={uppercasehandler}
-          disabled={textarea.length===0}
+          disabled={textarea.length === 0}
         >
           Uppercase
         </button>
@@ -69,7 +71,7 @@ export default function Textarea(props) {
           type="button"
           className="btn btn-primary mx-1"
           onClick={lowercasehandler}
-          disabled={textarea.length===0}
+          disabled={textarea.length === 0}
         >
           lowercase
         </button>
@@ -77,7 +79,7 @@ export default function Textarea(props) {
           type="button"
           className="btn btn-primary mx-1"
           onClick={copyhandler}
-          disabled={textarea.length===0}
+          disabled={textarea.length === 0}
         >
           Copy text
         </button>
@@ -85,7 +87,7 @@ export default function Textarea(props) {
           type="button"
           className="btn btn-primary mx-1"
           onClick={handleremovespace}
-          disabled={textarea.length===0}
+          disabled={textarea.length === 0}
         >
           Remove extra spaces
         </button>
@@ -93,7 +95,7 @@ export default function Textarea(props) {
           type="button"
           className="btn btn-primary mx-1"
           onClick={clearhandler}
-          disabled={textarea.length===0}
+          disabled={textarea.length === 0}
         >
           Clear
         </button>
@@ -104,8 +106,14 @@ export default function Textarea(props) {
         }`}
       >
         <h6>word count ={wordcount}</h6>
-        <h6>characters count={charactercount}</h6> 
-        <h6><u>{textarea.length===0?"Type text to see preview":"Your text preview"}</u></h6>
+        <h6>characters count={charactercount}</h6>
+        <h6>
+          <u>
+            {textarea.length === 0
+              ? "Type text to see preview"
+              : "Your text preview"}
+          </u>
+        </h6>
         <h6>{textarea}</h6>
       </div>
     </>
